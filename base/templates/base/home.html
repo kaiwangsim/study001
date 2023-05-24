@@ -1,0 +1,26 @@
+{% extends 'main.html' %}
+
+
+{% block content %}
+<head>
+    <script src="https://unpkg.com/pyscript"></script>
+</head>
+<v1>this is home!!!!!!!</v1>
+
+
+
+<div>
+    <div>
+        {% for room in rooms %}
+            <div>
+                <h5>{{room.country}} -- <a href="/money/{{room.country}}">{{room.rate}}</a></h5>
+            </div>
+        {% endfor %}
+    </div>
+
+
+</div>
+
+
+{% endblock %}
+
