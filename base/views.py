@@ -32,3 +32,6 @@ def home(request):
 def money(request, pk):
     return render(request, "base\money.html")
 
+def oest(request):
+    return render(request, "base\oest.html")
+
