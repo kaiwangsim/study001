@@ -5,21 +5,65 @@
 <head>
     <script src="https://unpkg.com/pyscript"></script>
 </head>
-<v1>this is home!!!!!!!</v1>
-
-
+<v1>RMB rate:<v1>
 
 <div>
     <div>
-        {% for room in rooms %}
+        {% for i in rooms %}
             <div>
-                <h5>{{room.country}} -- <a href="/money/{{room.country}}">{{room.rate}}</a></h5>
+                <!-- <h5>1 {{i.country}} = <a href="/money/{{i.country}}">{{i.rate}}</a>  RMB</h5> -->
+                <h5>1 {{i.country}} = {{i.rate}}  RMB</h5>
             </div>
         {% endfor %}
     </div>
 
 
 </div>
+
+<hr>
+
+<!-- <div>
+    {% for i in test11 %}
+    {% if i.country == 'China' %}
+    <div>
+        China time:<br>
+        {{i.time}}<br><br>
+    </div>
+    {% elif i.country == 'London' %}
+    <div>
+        London time:<br>
+        {{i.time}}<br><br>
+        
+    </div>
+
+    {% endif %}
+
+
+    {% endfor %}
+
+</div> -->
+
+
+China time:
+<div id="clock_CN"></div>
+<script>
+    const clock_CN = document.getElementById("clock_CN");
+
+    setInterval(() => {
+      clock_CN.innerHTML = new Date().toLocaleString(undefined, {timeZone: "Asia/Shanghai"});
+    }, 1000);
+  </script>
+<br>
+
+London time:
+<div id="clock"></div>
+<script>
+    const clock = document.getElementById("clock");
+
+    setInterval(() => {
+      clock.innerHTML = new Date().toLocaleString(undefined, {timeZone: "Europe/London"});
+    }, 1000);
+  </script>
 
 
 {% endblock %}
