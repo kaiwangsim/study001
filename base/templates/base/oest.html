@@ -3,13 +3,195 @@
 
 {% block content %}
 
-<br><br>
-<br><br>
+<div class="toolbar" id="toolbar-default" style="position: relative;">
+				
+							
+				<!-- Explicit link to page -->
+				<span style="float: right; padding-top: 2px; padding-right: 18px; width: 410px">
+
+					<a id="page-link" rel="nofollow" target="_blank" href="https://www.worldtimebuddy.com/?pl=1&amp;lid=2643743,1796236,1791247,1799962,1804651,1783873&amp;h=2643743&amp;date=5/31/2023%7C3&amp;hf=1" tipsy-gravity="ne" style="text-transform: uppercase; font-size:9px; border-bottom: 1px dotted; text-decoration: none;padding: 8px 0 0 0; margin-top: -4px; font-weight: bold; margin-right: 5px; float: right" title="Direct link to this view." class="" onmousedown="_gaq.push(['_trackEvent', 'Misc', 'Get Link', 'Action']); return false">Link to this view</a>
+									
+														
+
+					<span class="item" style="width: 6px; padding-right: 6px; padding-left: 5px; text-align: left; float: right;  ">
+						<span class="pipe"></span>
+					</span>
 
 
-<fieldset>this is a field</fieldset>
+          <!-- Settings drop-down -->
+          <span style="margin-left: 5px; margin-top: 1px; float: right">
+            <div id="settings-dropdown" class="">
+              <div id="sd-activator" style="">Settings</div>
+              <div id="sd-dropdown">
+                <ul>
+                  <li><a title="Show timezone names (PST, EST, JST) next to city" id="bttn-tz-switch" class="setting-on">Show Timezones</a></li>
+                  <li><a title="Highlight weekend hours in red (if they are present)" id="bttn-wknd-switch" class="">Mark Weekends</a><!-- <span class="setting-help">?</span> --></li>
+                  <li><a title="Manage which calendars to show above the hour-tiles" id="bttn-cal-settings" class="">Calendars...</a></li>
+                </ul>          
+                <div id="sd-dropdown-shade"></div>
+             </div>
+            </div>
+          </span>
+                    
+          					
+					<!-- span style="width: 30px; margin-left: 0px; text-align: center;">
+						<span class="pipe"></span>
+					</span -->
+											
+					
+				</span>
+				
+				<!-- Sort by offset from home buttons -->
+				<span class="item" id="sorter" style="text-align: center; width: 41px; cursor: default; margin-top: 12px;">
+					<a class="sort-up" title="Sort by smallest offset first"></a><a class="sort-down" title="Sort by largest offset first"></a>
+				</span>
+			
+				<!-- Location search -->
+				<span class="item">
+					<div id="searchIcon"></div>
+					<div id="defaultText" onclick="javascript:document.getElementById('location').focus()">Place or timezone</div>
+					<input type="text" value="" autocomplete="off" name="location" id="location" maxlength="50">
+					<div style="display: none;" id="location_list" class="location_list"></div>
+				</span>
+				
+				<span class="item" style="width: 35px; text-align: center; margin-top: 7px;">
+<!-- 					<span class="pipe"></span> -->
+				</span>
+				
+				<!-- Inline calendar -->					
+				<span style="margin-top: 0px;"> 
+					<!--[if IE 6]>
+	<style>
+		.datepicker {
+			bottom: -13px;
+		}
+		#dpckr {
+			z-index: 20000;
+		}		
+	</style>
+	<![endif]-->	
 
-<!-- <iframe src="https://youtu.be/NLypiQlLgyU" width="500" height="300"></iframe> -->
-<iframe width="885" height="498" src="https://www.youtube.com/embed/PDy7s1SDDn4" title="Elon Musk on AI, China, Tesla and Succession Planning | WSJ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+	<style>
+		.date-arrow {
+			display: inline-block;
+			padding: 3px;
+			padding-bottom: 2px;
+			border: 1px solid transparent;			
+			-moz-border-radius: 2px;	
+			-webkit-border-radius: 2px;
+			cursor: pointer;
+		}
+		
+		.date-arrow:hover {
+			background-color: #F6F6F6; /* &#EDF7FA; */ 
+			border-color: #FFF #CCC #CCC #FFF;
+		}
+		
+		.date-arrow span {
+			display: inline-block;
+			width: 5px;
+			height: 9px;
+			opacity: 0.4;
+			filter: alpha(opacity=40);
+		}
+
+		.date-arrow:hover span {
+			filter: alpha(opacity=60);
+			opacity: 0.6;			
+		}
+		
+		.date-arrow span.left {
+			margin-right: 1px;
+			background: transparent url('/media/img/tipsy.gif?144') no-repeat left center;			
+		}
+		
+		.date-arrow span.right {
+			margin-left: 1px;
+			background: transparent url('/media/img/tipsy.gif?144') no-repeat right center;
+		}
+		
+		.revert-wrapper {
+			padding-bottom: 2px;
+			padding-top: 0px;
+			display: inline-block;
+			/*border: 1px solid #bbb;*/
+			-moz-border-radius: 2px;	
+			-webkit-border-radius: 2px;
+/*			background: #FFDDDD;*/
+			margin-left: -3px;
+			margin-right: 5px;
+			opacity: 0.6;
+			cursor: pointer;			
+		}
+		
+		.revert-wrapper:hover {
+			/* background-color: #F6F6F6; /* &#EDF7FA; */ 
+/*			border-color: #FFF #CCC #CCC #FFF;*/
+			opacity: 1;			
+		}
+		
+		.date-jump,
+		.date-jump-txt {
+			display: inline-block;
+		}
+
+		
+		.wknd-cell {
+			color: #D77576;			
+/*			border-color: #D77576;*/
+		}
+
+
+	.date-jump-txt {
+		padding: 6px 8px 10px; 
+		font-size: 11px;
+				
+	}
+
+	.date-jump {			
+/*		border-color: transparent; 							*/
+	}
+		
+	.date-jump,
+	.current-cell {
+		border-width: 1px 1px 1px 1px;
+	}
+		
+	/* Make currently selected date look like a tab */
+	.current-cell  {		
+		border-left-color: #ccc;
+		border-right-color: #ccc;
+		border-bottom-color: #fff;
+		border-top-color: #ccc;
+		border-style: solid; 
+		border-radius: 3px 3px 0 0;
+		z-index: 2000;
+		position: relative;
+		background: #fff;		
+		
+		margin-top: 4px;
+	}
+
+	/* Adds little area to extend the curren tab to it connects with main area */
+	.current-cell:after {
+		position: absolute;
+		content: "";
+		left: 0; right: 0; bottom: -3px;
+		height: 3px;
+		background: #fff;
+	}
+	
+	.current-cell:first-child {
+		margin-left: 7px;		
+	}
+		
+	</style>
+
+<a style="margin: 0 0px; display: inline-block; height: 11px; width: 19px; position: relative"><span title="Pick date (Home)" class="datepicker_input bttn-normal rounded3">&nbsp;</span><div class="date_selector" style="display: none;"><div class="nav"><p class="month_nav"><span class="button prev" title="[Page-Up]">«</span> <span class="month_name">May</span> <span class="button next" title="[Page-Down]">»</span></p><p class="year_nav"><span class="button prev" title="[Ctrl+Page-Up]">«</span> <span class="year_name">2023</span> <span class="button next" title="[Ctrl+Page-Down]">»</span></p></div><table><thead><tr><th>Su</th><th>Mo</th><th>Tu</th><th>We</th><th>Th</th><th>Fr</th><th>Sa</th></tr></thead><tbody><tr><td class="unselected_month" date="4/30/2023">30</td><td class="selectable_day" date="5/1/2023">1</td><td class="selectable_day" date="5/2/2023">2</td><td class="selectable_day" date="5/3/2023">3</td><td class="selectable_day" date="5/4/2023">4</td><td class="selectable_day" date="5/5/2023">5</td><td class="selectable_day" date="5/6/2023">6</td></tr><tr><td class="selectable_day" date="5/7/2023">7</td><td class="selectable_day" date="5/8/2023">8</td><td class="selectable_day" date="5/9/2023">9</td><td class="selectable_day" date="5/10/2023">10</td><td class="selectable_day" date="5/11/2023">11</td><td class="selectable_day" date="5/12/2023">12</td><td class="selectable_day" date="5/13/2023">13</td></tr><tr><td class="selectable_day" date="5/14/2023">14</td><td class="selectable_day" date="5/15/2023">15</td><td class="selectable_day" date="5/16/2023">16</td><td class="selectable_day" date="5/17/2023">17</td><td class="selectable_day" date="5/18/2023">18</td><td class="selectable_day" date="5/19/2023">19</td><td class="selectable_day" date="5/20/2023">20</td></tr><tr><td class="selectable_day" date="5/21/2023">21</td><td class="selectable_day" date="5/22/2023">22</td><td class="selectable_day" date="5/23/2023">23</td><td class="selectable_day" date="5/24/2023">24</td><td class="selectable_day" date="5/25/2023">25</td><td class="selectable_day" date="5/26/2023">26</td><td class="selectable_day" date="5/27/2023">27</td></tr><tr><td class="selectable_day" date="5/28/2023">28</td><td class="selectable_day today" date="5/29/2023">29</td><td class="selectable_day" date="5/30/2023">30</td><td class="selectable_day selected" date="5/31/2023">31</td><td class="unselected_month" date="6/1/2023">1</td><td class="unselected_month" date="6/2/2023">2</td><td class="unselected_month" date="6/3/2023">3</td></tr></tbody></table></div></a><span class="datepicker_input_txt" style="margin-left: 7px;"><span idx="0" class="date-jump  wknd-cell" original-title="Sun"><span class="date-jump-txt" style="cursor: pointer;">28 </span></span><span style="border-left: 1px solid #ddd; border-right: 1px solid #fff; height: 7px; position: absolute; bottom: -12px;"></span><span idx="1" class="date-jump " original-title="Mon / Today"><span class="date-jump-txt" style="cursor: pointer;font-weight: normal;color: #222;">29 </span></span><span style="border-left: 1px solid #ddd; border-right: 1px solid #fff; height: 7px; position: absolute; bottom: -12px;"></span><span idx="2" class="date-jump " original-title="Tue"><span class="date-jump-txt" style="cursor: pointer;">30 </span></span><span idx="3" class="date-jump rounded3 current-cell" original-title="Wed"><span class="date-jump-txt" style="cursor: pointer;color: #222;">May 31 </span><a title="Return to today's date" class="revert-wrapper"><span class="datepicker_revert"></span></a></span><span idx="4" class="date-jump " original-title="Thu"><span class="date-jump-txt" style="cursor: pointer;">1 </span></span><span style="border-left: 1px solid #ddd; border-right: 1px solid #fff; height: 7px; position: absolute; bottom: -12px;"></span><span idx="5" class="date-jump " original-title="Fri"><span class="date-jump-txt" style="cursor: pointer;">2 </span></span><span style="border-left: 1px solid #ddd; border-right: 1px solid #fff; height: 7px; position: absolute; bottom: -12px;"></span><span idx="6" class="date-jump  wknd-cell" original-title="Sat"><span class="date-jump-txt" style="cursor: pointer;">3 </span></span></span>																		
+				</span>
+				
+				
+				
+			</div>
 
 {% endblock %}

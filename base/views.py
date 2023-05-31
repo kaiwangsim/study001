@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import roomclass
+from .models import roomclass, device
 import requests
 from pytz import timezone
 import pytz
@@ -44,7 +44,7 @@ def home(request):
     # room = roomclass.objects.all()
 
     context = {'rooms': bigger_RMB}
-    return render(request, 'base\home.html', {'rooms': bigger_RMB, 'test11': test12})
+    return render(request, 'base\home.html', {'rooms': bigger_RMB, 'test11': test12, "device": device.objects.all()})
 
 
 def money(request, pk):
@@ -53,3 +53,5 @@ def money(request, pk):
 def oest(request):
     return render(request, "base\oest.html")
 
+def wangkai01(request):
+    return render(request, "base\wangkai01.html")
