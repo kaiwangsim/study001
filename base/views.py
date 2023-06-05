@@ -44,14 +44,14 @@ def home(request):
     # room = roomclass.objects.all()
 
     context = {'rooms': bigger_RMB}
-    return render(request, 'base\home.html', {'rooms': bigger_RMB, 'test11': test12, "device": device.objects.all()})
+    return render(request, 'base/home.html', {'rooms': bigger_RMB, 'test11': test12, "device": device.objects.all()})
 
 
 def money(request, pk):
-    return render(request, "base\money.html")
+    return render(request, "base/money.html")
 
 def oest(request):
-    return render(request, "base\oest.html")
+    return render(request, "base/oest.html")
 
 def wangkai01(request):
-    return render(request, "base\wangkai01.html")
+    return render(request, "base/wangkai01.html", {'devices':device.objects.all})

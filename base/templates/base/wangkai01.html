@@ -51,7 +51,45 @@
           </div>
         </div>
       </nav>
-    wangkai test
+      <div class="container-fluid"> 
+        <h3 class="m4">Devices</h3> 
+        {% if devices %}
+        <div class="card bg-light mb-3" style="max-width: 200rem;">
+          <div class="card-header">Devices</div>
+          <div class="card-body">
+            <p class="card-text">
+              <div>
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th scope="col">Device Name</th>
+                      <th scope="col">Description</th>
+                      <th scope="col">Created Time</th>
+                      <th scope="col">IP address</th>
+                      <th scope="col">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for device in devices %}
+                      <tr>
+                        <td>{{ device.device_name }}</td>
+                        <td>{{ device.description }}</td>
+                        <td>{{ device.created }}</td>
+                        <td>{{ device.IP_add }}</td>
+                        <td>ACTIONS</td>
+                      </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>>
+            </p>
+          </div>
+        </div>
+        {% else %}
+          <h5>No device records</h5>
+        {% endif %}
+      </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
