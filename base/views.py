@@ -26,25 +26,11 @@ bigger_RMB = [
 ]
 
 
-
-
-
-fmt = '%Y-%m-%d %H:%M:%S %Z%z'
-zone_CN = timezone('Asia/Shanghai')
-zone_London = timezone('Europe/London')
-CN_time=datetime.now().astimezone(zone_CN).strftime(fmt)
-London_time=datetime.now().astimezone(zone_London).strftime(fmt)
-# test12= [CN_time, London_time]
-test12= [{'country': 'China', 'time': CN_time},
-         {'country': 'London', 'time': London_time},
-         ]
-
-# Create your views here.
 def home(request):
     # room = roomclass.objects.all()
 
     context = {'rooms': bigger_RMB}
-    return render(request, 'base/home.html', {'rooms': bigger_RMB, 'test11': test12, "device": device.objects.all()})
+    return render(request, 'base/home.html', {'rooms': bigger_RMB, "device": device.objects.all()})
 
 
 def money(request, pk):
