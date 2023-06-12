@@ -7,3 +7,4 @@ from .models import device
 
 admin.site.register(roomclass)
 admin.site.register(device)
+
